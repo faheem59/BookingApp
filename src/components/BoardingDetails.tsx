@@ -30,55 +30,57 @@ const BoardingDetailsForm: React.FC = () => {
     };
 
     return (
-        <div className="container">
-            <h1>Boarding Details</h1>
-            <form onSubmit={handleSubmit(onSubmit)}>
-                <Grid container spacing={2}>
-                    <Grid item xs={12} sm={6}>
-                        <Controller
-                            name="appointmentDate"
-                            control={control}
-                            render={({ field }) => (
-                                <LocalizationProvider dateAdapter={AdapterDayjs}>
-                                    <DatePicker
-                                        {...field}
-                                        label="Appointment Date"
-                                        
-                                    />
-                                    {errors.appointmentDate && (
-                                        <div style={{ color: 'red', marginTop: '0.5rem' }}>
-                                            {errors.appointmentDate.message}
-                                        </div>
-                                    )}
-                                </LocalizationProvider>
-                            )}
-                        />
+        <>
+            <div className="container">
+                <h1>Boarding Details</h1>
+                <form onSubmit={handleSubmit(onSubmit)}>
+                    <Grid container spacing={2}>
+                        <Grid item xs={12} sm={6}>
+                            <Controller
+                                name="appointmentDate"
+                                control={control}
+                                render={({ field }) => (
+                                    <LocalizationProvider dateAdapter={AdapterDayjs}>
+                                        <DatePicker
+                                            {...field}
+                                            label="Appointment Date"
+
+                                        />
+                                        {errors.appointmentDate && (
+                                            <div style={{ color: 'red', marginTop: '0.5rem' }}>
+                                                {errors.appointmentDate.message}
+                                            </div>
+                                        )}
+                                    </LocalizationProvider>
+                                )}
+                            />
+                        </Grid>
+                        <Grid item xs={12} sm={6}>
+                            <Controller
+                                name="appointmentTime"
+                                control={control}
+                                render={({ field }) => (
+                                    <LocalizationProvider dateAdapter={AdapterDayjs}>
+                                        <TimePicker
+                                            {...field}
+                                            label="Appointment Date"
+                                        />
+                                        {errors.appointmentTime && (
+                                            <div style={{ color: 'red', marginTop: '0.5rem' }}>
+                                                {errors.appointmentTime.message}
+                                            </div>
+                                        )}
+                                    </LocalizationProvider>
+                                )}
+                            />
+                        </Grid>
                     </Grid>
-                    <Grid item xs={12} sm={6}>
-                        <Controller
-                            name="appointmentTime"
-                            control={control}
-                            render={({ field }) => (
-                                <LocalizationProvider dateAdapter={AdapterDayjs}>
-                                    <TimePicker
-                                        {...field}
-                                        label="Appointment Date"
-                                    />
-                                    {errors.appointmentTime && (
-                                        <div style={{ color: 'red', marginTop: '0.5rem' }}>
-                                            {errors.appointmentTime.message}
-                                        </div>
-                                    )}
-                                </LocalizationProvider>
-                            )}
-                        />
-                    </Grid>
-                </Grid>
-                <Button type="submit" variant="contained" color="primary" sx={{ mt: 1 }}>
-                    Book
-                </Button>
-            </form>
-        </div>
+                    <Button type="submit" variant="contained" color="primary" sx={{ mt: 1 }}>
+                        Book
+                    </Button>
+                </form>
+            </div>
+        </>
     );
 };
 
